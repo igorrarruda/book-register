@@ -1,20 +1,26 @@
-package br.com.eesdevop.bancodedados.model;
+package br.com.eesdevop.model;
 
-import javax.persistence.*;
+public class Book {
 
-@Entity
-@Table(name = "books")
-public class BookEntity {
-
-    @Id
-    @GeneratedValue
     private long id;
-
-    @Column(name = "title", nullable = false)
     private String title;
-
-    @Column(name = "author", nullable = false)
     private String author;
+
+    
+    public Book() {
+    }
+
+    public Book(String title, String author) {
+        this.id = -1;
+        this.title = title;
+        this.author = author;
+    }
+
+    public Book(long id, String title, String author) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+    }
 
     public long getId() {
         return id;
@@ -42,7 +48,7 @@ public class BookEntity {
 
     @Override
     public String toString() {
-        return "BookEntity{" +
+        return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +

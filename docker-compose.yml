@@ -6,6 +6,8 @@ services:
       - postgres
     ports:
       - "8383:8080"
+    volumes:
+      - m2_data:/root/.m2/
   postgres:
     image: postgres
     volumes:
@@ -28,3 +30,4 @@ services:
       - postgres
 volumes:
   db_data:
+  m2_data:
