@@ -1,4 +1,4 @@
-package br.com.eesdevop.model;
+package br.com.bookstore.model;
 
 public class Book {
 
@@ -8,6 +8,10 @@ public class Book {
 
     
     public Book() {
+    }
+
+    public Book(long id) {
+        this.id = id;
     }
 
     public Book(String title, String author) {
