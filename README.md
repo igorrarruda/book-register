@@ -19,5 +19,16 @@ Run in this directory:
 ```
 docker-compose up
 ```
-The app will be running at [http://localhost:8383/bookstore](http://localhost:8383/bookstore), and Pgadmin access using [http://localhost:8080](http://localhost:8080).
+
+Acess the Pgadmin using [http://localhost:8080](http://localhost:8080) and create the book table structure:
+
+```sql
+CREATE TABLE book(
+	id serial PRIMARY KEY,
+	title VARCHAR (250) NOT NULL,
+	author VARCHAR (50) NOT NULL
+);
+```
+
+The app will be running at [http://localhost:8383/bookstore](http://localhost:8383/bookstore).
 
