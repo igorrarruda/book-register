@@ -16,6 +16,7 @@ import java.util.List;
 @WebServlet("/bookstore")
 public class BookServlet extends HttpServlet {
 
+    private static final long serialVersionUID = -8952826917417295960L;
     private BookDao bookDao;
 
     @Override
@@ -37,24 +38,24 @@ public class BookServlet extends HttpServlet {
 
         try {
             switch (action) {
-            case "/new":
-                showNewForm(request, response);
-                break;
-            case "/insert":
-                insertBook(request, response);
-                break;
-            case "/delete":
-                deleteBook(request, response);
-                break;
-            case "/edit":
-                showEditForm(request, response);
-                break;
-            case "/update":
-                updateBook(request, response);
-                break;
-            default:
-                listBook(request, response);
-                break;
+                case "/new":
+                    showNewForm(request, response);
+                    break;
+                case "/insert":
+                    insertBook(request, response);
+                    break;
+                case "/delete":
+                    deleteBook(request, response);
+                    break;
+                case "/edit":
+                    showEditForm(request, response);
+                    break;
+                case "/update":
+                    updateBook(request, response);
+                    break;
+                default:
+                    listBook(request, response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -85,8 +86,7 @@ public class BookServlet extends HttpServlet {
 
     }
 
-    private void insertBook(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+    private void insertBook(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         String title = request.getParameter("title");
         String author = request.getParameter("author");
 
@@ -95,8 +95,7 @@ public class BookServlet extends HttpServlet {
         response.sendRedirect("list");
     }
 
-    private void updateBook(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+    private void updateBook(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         long id = Long.parseLong(request.getParameter("id"));
         String title = request.getParameter("title");
         String author = request.getParameter("author");
@@ -106,8 +105,7 @@ public class BookServlet extends HttpServlet {
         response.sendRedirect("list");
     }
 
-    private void deleteBook(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+    private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         long id = Long.parseLong(request.getParameter("id"));
 
         Book book = new Book(id);
